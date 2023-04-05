@@ -1,0 +1,1 @@
+A collection of string-related functions created for convenience
