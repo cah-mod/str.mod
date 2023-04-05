@@ -30,6 +30,12 @@ ModuleInfo "History: 1.00 Initial Release"
 
 Framework BRL.Blitz
 
+Import "glue.cpp"
+
+Extern
+	Function bmx_double_to_string:String(val:Double, precision:Int)
+EndExtern
+
 Include "src/array.bmx"
 Include "src/between.bmx"
 Include "src/case.bmx"
@@ -42,6 +48,7 @@ Include "src/mid.bmx"
 Include "src/misc.bmx"
 Include "src/pad.bmx"
 Include "src/replace.bmx"
+Include "src/round.bmx"
 Include "src/split.bmx"
 Include "src/trim.bmx"
 Include "src/valid.bmx"
