@@ -25,7 +25,7 @@ Function StrMid:String(str:String, pos:Int, length:Int)
 		ElseIf length > 0
 			Return str[pos..Min(str.length, pos+length)]
 		Else
-			Return str[Max(str.length + length, 0)..]
+			Return str[pos..Max(str.length+length, pos)]
 		EndIf
 	Else
 		Local starts:Int = Max(str.length+pos, 0)
