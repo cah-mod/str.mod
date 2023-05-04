@@ -29,12 +29,7 @@ ModuleInfo "Copyright: 2023 Carl A Husberg"
 ModuleInfo "History: 1.00 Initial Release"
 
 Framework BRL.Blitz
-
-Import "glue.cpp"
-
-Extern
-	Function bmx_double_to_string:String(val:Double, precision:Int)
-EndExtern
+Import BRL.StringBuilder
 
 Include "src/array.bmx"
 Include "src/between.bmx"

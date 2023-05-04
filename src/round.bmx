@@ -1,15 +1,22 @@
-Rem
-bbdoc:
-EndRem
-Function Round:Double(val:Double, decimals:Int)
-	Return Double(bmx_double_to_string(val, decimals))
-EndFunction
+Private
+Global sb:TStringBuilder = New TStringBuilder()
+
+Public
 
 Rem
 bbdoc:
 EndRem
 Function RoundToString:String(val:Double, decimals:Int)
-	Return bmx_double_to_string(val, decimals)
+	sb.SetLength(0)
+	sb.FormatDouble("%." + decimals + "f", val)
+	Return sb.ToString()
+EndFunction
+
+Rem
+bbdoc:
+EndRem
+Function Round:Double(val:Double, decimals:Int)
+	Return Double(RoundToString(val, decimals))
 EndFunction
 
 Rem
@@ -22,16 +29,15 @@ Function RoundToString:String(val:Double, decimals:Int, pretty:Int)
 		Return str
 	EndIf
 	
-	Local find:Int = str.find(".")
-	
-	Local major:String = str[..find]
-	Local minor:String = str[find+1..]
-	
-	minor = TrimRight(minor, "0")
-	
-	If Not minor
-		Return major
-	EndIf
-	
-	Return major + "." + minor
+	For Local i:Int = str.length-1 To 0 Step -1
+		If str[i] = 48
+			Continue
+		EndIf
+		
+		If str[i] = 46
+			Return str[..i]
+		EndIf
+		
+		Return str[..i+1]
+	Next
 EndFunction
