@@ -75,3 +75,22 @@ Function StrIsAlphaNumeric:Int(str:String)
 	
 	Return True
 EndFunction
+
+Rem
+bbdoc:
+EndRem
+Function StrIsFloat:Int(str:String, separator:String=".")
+	Local parts:String[] = str.Split(separator)
+	
+	If parts.length > 2
+		Return False
+	EndIf
+	
+	For Local part:String = EachIn parts
+		If Not StrIsDigits(part)
+			Return False
+		EndIf
+	Next
+	
+	Return True
+EndFunction
