@@ -1,11 +1,4 @@
 Rem
-bbdoc: Removes reserved windows characters and replaces double quotes (") with single quotes (').
-EndRem
-Function StrReplaceWinChars:String(str:String)
-	Return Replace(str, ["<", ">", ":", "~q", "/", "\", "|", "?", "*"], ["", "", "", "'", "", "", "", "", ""])
-EndFunction
-
-Rem
 bbdoc: Turns a hexadecimal number into a decimal number. (Must be a better way of doing this?)
 EndRem
 Function Hex2Dec:ULong(str:String)
